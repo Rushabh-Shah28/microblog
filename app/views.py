@@ -9,11 +9,13 @@ def index():
     posts = [
         {
             'author': "J.K Rowling",
-            'description': 'Beautiful day in Portland!'
+            'description': 'We do not need magic to transform our world. We carry all of the power we need '
+                           'inside ourselves already.'
         },
         {
             'author': 'Barack Obama',
-            'description': 'The Avengers movie was so cool!'
+            'description': "The future rewards those who press on. I don't have time to feel sorry for myself. "
+                           "I don't have time to complain. I'm going to press on"
         }
     ]
     return render_template("index.html",

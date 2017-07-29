@@ -2,18 +2,19 @@
 <html>
   <head>
     {% if title %}
-    <title>{{ title }} - microblog</title>
+    <title>{{ title }}</title>
     {% else %}
     <title>Welcome to microblog</title>
     {% endif %}
   </head>
   <body>
-    <h1>Hi, {{ user.nickname }}!</h1>
+    <h1>Hi, {{ user.name }}!</h1>
     {% for post in posts %}
-    <div>
-        <p>{{ post.author.nickname }} says: <b>{{ post.body }}</b>
-        </p>
-    </div>
+        <div>
+            <p>
+                Author : {{ post.author }} <br>Quotes:{{ post.description }}
+            </p>
+        </div>
     {% endfor %}
   </body>
 </html>
