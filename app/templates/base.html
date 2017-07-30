@@ -11,6 +11,16 @@
     <div>
         Microblog <a href="/index">Home</a>
     </div>
+    <hr>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div>
+                    Flash Message : {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     {% block content %}{% endblock %}
   </body>
 </html>
