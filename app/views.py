@@ -8,7 +8,7 @@ def index():
     user = {'name': 'Rushabh'}
     posts = [
         {
-            'author': "J.K Rowling",
+            'author': 'J.K Rowling',
             'description': 'We do not need magic to transform our world. We carry all of the power we need '
                            'inside ourselves already.'
         },
