@@ -58,15 +58,19 @@ def after_login(resp):
         redirect(url_for('login'))
 
     user = User.query.filter(User.email == resp.email)
+
     if user is None:
-        user = User(name = resp.name, email = resp.email)
+        name = resp.name
+        if name is None or name == "":
+            name = resp.email.split('@')[0]
+        user = User(name = name, email = resp.email)
         db.session.add(user)
         db.session.commit()
 
-    if 'remember_me' in session['remember_me']:
+    remember_me = False
+    if 'remember_me' in session:
         remember_me = session['remember_me']
-    else:
-        remember_me = False
+        session.pop('remember_me', None)
 
     login_user(user,remember_me)
     return redirect(url_for('index') or request.args.get('next'))
